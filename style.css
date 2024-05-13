@@ -1,0 +1,35 @@
+body {
+  background-color: #00f; /* Blauer Hintergrund */
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #fff; /* Weißer Hintergrund für Tabellenkopf */
+}
+
+.table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.5); /* Transparentes Weiß für gerade Zeilen */
+}
+
+.table tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.8); /* Transparentes Weiß für ungerade Zeilen */
+}
+
+.hidden {
+  display: none;
+}
