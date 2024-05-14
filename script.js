@@ -82,7 +82,38 @@ function startStopTimer(index) {
   }
 }
 
-// Funktion zum Aktualisieren der Seite
-function reloadPage() {
-    location.reload();
+// Timer aktualisieren
+function updateTimer() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  document.getElementById('timer').innerText = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+}
+
+function formatTime(time) {
+  return time < 10 ? "0" + time : time;
+}
+
+// WebSocket-Verbindung herstellen
+var socket = new WebSocket("ws://localhost:8080");
+
+// Eventlistener für Ereignisse der WebSocket-Verbindung
+socket.onopen = function(event) {
+    console.log("WebSocket-Verbindung geöffnet.");
+};
+
+socket.onmessage = function(event) {
+    console.log("Nachricht empfangen:", event.data);
+    // Hier kannst du die empfangene Nachricht weiterverarbeiten, z.B. den Timer aktualisieren
+    updateTimer(event.data);
+};
+
+socket.onclose = function(event) {
+    console.log("WebSocket-Verbindung geschlossen.");
+};
+
+// Funktion zum Senden von Daten über die WebSocket-Verbindung
+function sendWebSocketData(data) {
+    socket.send(data);
 }
