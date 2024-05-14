@@ -96,7 +96,7 @@ function formatTime(time) {
 }
 
 // WebSocket-Verbindung herstellen
-var socket = new WebSocket("ws://localhost:8080");
+var socket = new WebSocket("ws://localhost:9090");
 
 // Eventlistener für Ereignisse der WebSocket-Verbindung
 socket.onopen = function(event) {
