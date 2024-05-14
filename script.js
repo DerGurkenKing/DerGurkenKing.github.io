@@ -117,3 +117,10 @@ socket.onclose = function(event) {
 function sendWebSocketData(data) {
     socket.send(data);
 }
+
+// Funktion zum Senden von Testnachrichten
+function sendTestMessage() {
+    var testMessage = "Dies ist eine Testnachricht!";
+    console.log("Sende Testnachricht:", testMessage);
+    socket.send(testMessage);
+}
